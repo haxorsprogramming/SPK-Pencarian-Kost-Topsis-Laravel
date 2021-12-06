@@ -179,6 +179,19 @@
         function prosesPerhitungan()
         {
             let nama = document.querySelector("#txtNama").value;
+            if(nama === ''){
+                window.alert("Harap isi nama pencari kost !!!");
+            }else{
+                let c1 = document.querySelector("#txtFasilitas").value;
+                let c2 = document.querySelector("#txtHarga").value;
+                let c3 = document.querySelector("#txtKeamanan").value;
+                let c4 = document.querySelector("#txtKenyamanan").value;
+                let c5 = document.querySelector("#txtUkuran").value;
+                let c6 = document.querySelector("#txtJarak").value;
+                let c7 = document.querySelector("#txtKebersihan").value;
+                let c8 = document.querySelector("#txtTempat").value;
+
+            }
         }
     </script>
 </body>

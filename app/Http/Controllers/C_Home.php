@@ -26,4 +26,18 @@ class C_Home extends Controller
         $dr = ['dataKost' => $dataKost];
         return view('home.dataKost', $dr);
     }
+    public function hasilPengujian(Request $request, $idPengujian)
+    {
+        $data['nama'] = "Diana";
+        $data['fasilitas'] = 5;
+        $data['harga'] = 5;
+        $data['keamanan'] = 3;
+        $data['kenyamanan'] = 1;
+        $data['ukuran'] = 1;
+        $data['jarak'] = 2;
+        $data['kebersihan'] = 3;
+        $data['tempat'] = 5;
+        $data['kost'] = M_Kost::all();
+        return view('home.hasilPengujian', $data);
+    }
 }

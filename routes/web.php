@@ -9,7 +9,8 @@ use App\Http\Controllers\C_Auth;
 Route::get('/', [C_Home::class, 'homePage']);
 Route::get('/pencarianKost', [C_Home::class, 'pencarianKost']);
 Route::get('/dataKost', [C_Home::class, 'dataKost']);
-Route::post('/prosesPencarian', [C_Home::class, 'prosesPencarian']);
+// Route::post('/prosesPencarian', [C_Home::class, 'prosesPencarian']);
+Route::get('/hasilPencarian/{idPengujian}', [C_Home::class, 'hasilPengujian']);
 
 // Halaman auth 
 Route::get('/login', [C_Auth::class, 'loginPage']);
