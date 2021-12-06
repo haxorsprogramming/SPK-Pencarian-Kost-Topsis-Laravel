@@ -12,8 +12,10 @@ Route::get('/pencarianKost', [C_Home::class, 'pencarianKost']);
 // Halaman auth 
 Route::get('/login', [C_Auth::class, 'loginPage']);
 Route::post('/login/proses', [C_Auth::class, 'loginProses']);
-
+Route::get('/auth/logout', [C_Auth::class, 'logout']);
 // halaman admin 
 Route::get('/app', [C_Admin::class, 'dashboardPage']);
 Route::get('/app/data-kriteria', [C_Admin::class, 'dataKriteria']);
 Route::get('/app/data-kost', [C_Admin::class, 'dataKost']);
+Route::get('/app/tambah-kost', [C_Admin::class, 'tambahKost']);
+Route::post('/app/tambah-kost/proses', [C_Admin::class, 'prosesTambahKost']);

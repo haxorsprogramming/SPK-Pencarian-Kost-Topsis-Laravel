@@ -50,4 +50,8 @@ class C_Auth extends Controller
         
         return \Response::json($dr);
     }
+    public function logout(Request $request)
+    {
+        return redirect('/');
+    }
 }
