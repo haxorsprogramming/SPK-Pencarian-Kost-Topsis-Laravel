@@ -52,7 +52,7 @@
             </div>
         </header>
         <!-- End header  -->
-
+    <div class="container">
         <div class="features">
             <div class="container">
                 <div class="row">
@@ -60,8 +60,10 @@
                         <div class="card">
                             <div class="card-header">Rekomendasi Pencarian Kost</div>
                             <div class="card-body">
-                                <form action="{{ url('') }}home/prosesPerhitungan" method="POST" id='frmRekomendasi'>
-
+                                    <div class="form-group">
+                                        <label for="txtNama">Nama Pencari Kost</label>
+                                        <input type="text" nama="txtNama" id="txtNama" placeholder="Nama Pencari Kost" class="form-control"/>
+                                    </div>
                                     <div class="form-group">
                                         <label for="company">Fasilitas</label>
                                         <select class="form-control" name="txtFasilitas" id="txtFasilitas">
@@ -143,16 +145,15 @@
                                         </select>
                                     </div>
                                     <div>
-                                        <a href="javascript:void(0)" class="btn btn-primary" id='btnProses'>Proses</a>
+                                        <a href="javascript:void(0)" onclick="prosesPerhitungan()" class="btn btn-primary" id="btnProses">Proses</a>
                                     </div>
-                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
+    </div>
         <!-- Footer -->
         <footer>
             <div style="text-align:center;margin-bottom:100px;">
@@ -160,7 +161,7 @@
             </div>
         </footer>
     </div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
     <script src="{{ asset('ladun/') }}/home/js/jquery-3.2.1.min.js"></script>
     <script src="{{ asset('ladun/') }}/home/styles/bootstrap4/popper.js"></script>
     <script src="{{ asset('ladun/') }}/home/styles/bootstrap4/bootstrap.min.js"></script>
@@ -174,30 +175,11 @@
     <script src="{{ asset('ladun/') }}/home/plugins/parallax-js-master/parallax.min.js"></script>
     <script src="{{ asset('ladun/') }}/home/js/custom.js"></script>
     <script>
-        $(document).ready(function() {
-
-            // document.querySelector('#txtRam').setAttribute("disabled", "disabled");
-
-            $('#btnProses').click(function() {
-                $('#frmRekomendasi').submit();
-            });
-
-
-
-        });
-
-        // function filterHarga()
-        // {
-        //     let harga = document.querySelector('#txtHarga').value;
-        //     let capRam = document.querySelector('#txtRam');
-
-        //     if(harga === '5'){
-        //         capRam.value = '1';
-        //         capRam.setAttribute("disabled", "disabled");
-        //     }else{
-        //         capRam.removeAttribute("disabled");
-        //     }
-        // }
+        document.querySelector("#txtNama").focus();
+        function prosesPerhitungan()
+        {
+            let nama = document.querySelector("#txtNama").value;
+        }
     </script>
 </body>
 
