@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class M_Kriteria extends Model
 {
-    use HasFactory;
+    protected $table = "tbl_k_kriteria";
 }

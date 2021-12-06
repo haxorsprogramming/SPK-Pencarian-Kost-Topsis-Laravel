@@ -35,7 +35,7 @@
         <ul class="nav navbar-nav ml-auto">
 
             <li class="nav-item d-md-down-none nama_admin">
-                Halo,
+                Halo, Admin
             </li>
             <li class="nav-item dropdown" style="margin-right: 25px">
                 <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
@@ -45,7 +45,7 @@
                     <div class="dropdown-header text-center">
                         <strong>Account</strong>
                     </div>
-                    <a class="dropdown-item" href="admin/logout">
+                    <a class="dropdown-item" href="{{ url('/auth/logout') }}">
                         <i class="fa fa-lock"></i> Logout</a>
                 </div>
             </li>
@@ -56,17 +56,17 @@
             <nav class="sidebar-nav">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="admin/dasbor">
+                        <a class="nav-link" href="{{ url('/') }}/app">
                             <i class="nav-icon icon-speedometer"></i> Dashboard
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href=admin/dataKriteria">
+                        <a class="nav-link" href="{{ url('/') }}/app/data-kriteria">
                             <i class="nav-icon icon-list"></i> Data Kriteria
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="admin/dataKost">
+                        <a class="nav-link" href="{{ url('/') }}/app/data-kost">
                             <i class="nav-icon icon-list"></i> Data Kost
                         </a>
                     </li>

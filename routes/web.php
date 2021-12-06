@@ -15,3 +15,5 @@ Route::post('/login/proses', [C_Auth::class, 'loginProses']);
 
 // halaman admin 
 Route::get('/app', [C_Admin::class, 'dashboardPage']);
+Route::get('/app/data-kriteria', [C_Admin::class, 'dataKriteria']);
+Route::get('/app/data-kost', [C_Admin::class, 'dataKost']);
