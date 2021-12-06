@@ -2,17 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Controllers\C_Home;
+use App\Http\Controllers\C_Admin;
+use App\Http\Controllers\C_Auth;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [C_Home::class, 'homePage']);
+Route::get('/pencarianKost', [C_Home::class, 'pencarianKost']);
+
+// Halaman admin 
+Route::get('/login', [C_Admin::class, 'loginPage']);
