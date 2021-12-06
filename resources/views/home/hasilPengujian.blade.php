@@ -125,7 +125,7 @@ function JarakIplus($aplus, $bob)
         <div class="features">
             <div class="container">
                 <div style="text-align: center;margin-bottom:15px;">
-                    <h2>Hasil rekomendasi pemilihan Tempat Kost</h2>
+                    <h2>Hasil perhitungan Topsis</h2>
                     <h4>Nama Pencari Kost : {{ $nama }}</h4>
                 </div>
                 <h4>Analisa Matrix</h4>
@@ -562,11 +562,13 @@ function JarakIplus($aplus, $bob)
                         <tr>
                             <?php
                             $testmax = max($nilaiV);
+                            $namaKost = "";
                             for ($i = 0; $i < count($nilaiV); $i++) {
                                 if ($nilaiV[$i] == $testmax) {
                                     $kk = $i + 1;
-                                    $qGetRank = DB::table('tbl_k_kost')->where('id', $kk)->first();
+                                    $qGetRank = DB::table('tbl_k_kost') -> where('ordinal', $kk) -> first();
                                     // dd($qGetRank);
+                                    $namaKost = $qGetRank -> nama_kost;
                             ?>
                                     <td>
                                         <center><?php echo "V" . ($i + 1); ?></center>
@@ -577,7 +579,7 @@ function JarakIplus($aplus, $bob)
 
 
                                     <td>
-                                        <center><b><?= $qGetRank->nama_kost; ?></b></center>
+                                        <center><b>{{ $qGetRank -> nama_kost }}</b></center>
                                     </td>
                             <?php
 
@@ -587,6 +589,10 @@ function JarakIplus($aplus, $bob)
                     </tbody>
                 </table>
             </div>
+            <div style="text-align: center;margin-bottom:15px;margin-top:25px;">
+                    <h4>Hasil rekomendasi pemilihan Tempat Kost</h4>
+                    <h2>"{{ $namaKost }}"</h2>
+                </div>
         </div>
 
         <!-- Footer -->

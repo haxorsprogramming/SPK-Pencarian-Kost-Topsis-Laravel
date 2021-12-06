@@ -8,8 +8,8 @@ use App\Http\Controllers\C_Auth;
 
 Route::get('/', [C_Home::class, 'homePage']);
 Route::get('/pencarianKost', [C_Home::class, 'pencarianKost']);
-Route::post('/pencarianKost/proses', [C_Home::class, 'pencarianKostProses']);
 Route::get('/dataKost', [C_Home::class, 'dataKost']);
+Route::post('/pencarianKost/proses', [C_Home::class, 'pencarianKostProses']);
 // Route::post('/prosesPencarian', [C_Home::class, 'prosesPencarian']);
 Route::get('/hasilPencarian/{idPengujian}', [C_Home::class, 'hasilPengujian']);
 

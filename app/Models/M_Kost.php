@@ -27,7 +27,8 @@ class M_Kost extends Model
         'kebersihan_cap',
         'kebersihan_angka',
         'tempat_cap',
-        'tempat_angka'
+        'tempat_angka',
+        'ordinal'
     ];
 
 }

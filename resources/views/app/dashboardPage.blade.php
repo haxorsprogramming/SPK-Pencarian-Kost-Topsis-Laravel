@@ -15,9 +15,7 @@
                   <i class="fa fa-list-ul bg-warning p-4 font-2xl mr-3"></i>
                     <div>
                       <div class="text-value-sm text-primary">
-                        <?php 
-                          
-                        ?>
+                        {{ $totalPengujian }}
                       </div>
                       <div class="text-muted text-uppercase font-weight-bold small">Pengujian</div>
                     </div>
@@ -31,11 +29,9 @@
                   <i class="fa fa-list-ul bg-warning p-4 font-2xl mr-3"></i>
                     <div>
                       <div class="text-value-sm text-info">
-                        <?php 
-                         
-                        ?> 
+                        {{ $totalKost }}
                       </div>
-                      <div class="text-muted text-uppercase font-weight-bold small">Smartphone</div>
+                      <div class="text-muted text-uppercase font-weight-bold small">Kost</div>
                     </div>
                   </div>
                 </div>
@@ -47,9 +43,7 @@
                     <i class="fa fa-list-ul bg-warning p-4 font-2xl mr-3"></i>
                     <div>
                       <div class="text-value-sm text-warning">
-                        <?php 
-                          
-                        ?>
+                        8
                       </div>
                       <div class="text-muted text-uppercase font-weight-bold small">Kriteria</div>
                     </div>
@@ -63,9 +57,7 @@
                     <i class="fa fa-user bg-danger p-4 font-2xl mr-3"></i>
                     <div>
                       <div class="text-value-sm text-danger">
-                        <?php 
-                          
-                        ?>
+                       1
                       </div>
                       <div class="text-muted text-uppercase font-weight-bold small">Admin</div>
                     </div>

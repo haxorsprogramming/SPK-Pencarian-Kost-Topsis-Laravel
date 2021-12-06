@@ -6,12 +6,16 @@ use Illuminate\Http\Request;
 
 use App\Models\M_Kriteria;
 use App\Models\M_Kost;
+use App\Models\M_Data_Pengujian;
 
 class C_Admin extends Controller
 {
     public function dashboardPage()
     {
-        return view('app.dashboardPage');
+        $totalKost = M_Kost::count();
+        $totalPengujian = M_Data_Pengujian::count();
+        $dr = ['totalKost' => $totalKost, 'totalPengujian' => $totalPengujian];
+        return view('app.dashboardPage', $dr);
     }
     public function dataKriteria()
     {
@@ -138,7 +142,7 @@ class C_Admin extends Controller
             case "3":
                 $jarakCap = "9 - 11 Menit";
                 break;
-            case "3":
+            case "2":
                 $jarakCap = "6 - 8 Menit";
                 break;
             case "1":
@@ -183,6 +187,13 @@ class C_Admin extends Controller
                 $tempatCap = "Warung makan, toko kelontong, foto copy, laundry, atm";
                 break;
         }
+        // cari ordinal 
+        $totalKost = M_Kost::count();
+        if($totalKost == 0){
+            $ordinal = 1;
+        }else{
+            $ordinal = $totalKost + 1;
+        }
         $kost = new M_Kost();
         $kost->nama_kost = $request -> nama;
         $kost->alamat = $request -> alamat;
@@ -202,13 +213,32 @@ class C_Admin extends Controller
         $kost->kebersihan_angka = $request->kebersihan;
         $kost->tempat_cap = $tempatCap;
         $kost->tempat_angka = $request->tempat;
+        $kost -> ordinal = "0";
         $kost->save();
+        $this -> resetOrdinal();
         $dr = ['status' => 'status'];
         return \Response::json($dr);
     }
     public function prosesHapusKost(Request $request)
     {
+        M_Kost::where('id', $request -> kdKost) -> delete();
+        $this -> resetOrdinal();
         $dr = ['status' => 'sukses'];
         return \Response::json($dr);
     }
+
+    function resetOrdinal()
+    {
+        $x = 1;
+        $totalKost = M_Kost::count();
+        $dataKost = M_Kost::all();
+        foreach($dataKost as $kost){
+            $id = $kost -> id;
+            M_Kost::where('id', $id) -> update([
+                'ordinal' => $x
+            ]);
+            $x++;
+        }
+    }
+
 }

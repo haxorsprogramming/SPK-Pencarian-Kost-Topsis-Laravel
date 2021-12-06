@@ -143,7 +143,10 @@
         let rProses = "{{ url('/app/kost/hapus/proses') }}";
         axios.post(rProses, {'kdKost':kdKost}).then(function(res){
             let obj = res.data;
-            console.log(obj);
+            pesanUmumApp('success', 'Sukses', 'Berhasil menghapus kost ...');
+                setTimeout(function() {
+                    window.location.assign("{{ url('/app/data-kost') }}");
+                }, 500);
         });
     }
     function pesanUmumApp(icon, title, text) {

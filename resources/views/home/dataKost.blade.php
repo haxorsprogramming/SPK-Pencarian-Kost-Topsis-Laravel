@@ -61,9 +61,7 @@
                             <div class="card">
                                 <div class="card-header">Data Kost</div>
                                 <div class="card-body">
-                                    <div style="margin-bottom:20px;">
-                                        <a href="{{ url('/') }}/app/tambah-kost" class="btn btn-primary">Tambah Kost</a>
-                                    </div>
+                                   
                                     <table id="table_id" class="table table-bordered" style="width:100%">
                                         <thead style="border-top: 1px solid #d0d0d0;">
                                             <tr>
