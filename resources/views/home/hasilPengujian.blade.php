@@ -18,6 +18,7 @@ $W8 = $tempat;
 //         $data['kebersihan'] = 2;
 //         $data['tempat'] = 2;
 // Pembagi Normalisasi
+
 function pembagiNM($matrik)
 {
     for ($i = 0; $i < 8; $i++) {
@@ -125,6 +126,7 @@ function JarakIplus($aplus, $bob)
             <div class="container">
                 <div style="text-align: center;margin-bottom:15px;">
                     <h2>Hasil rekomendasi pemilihan Tempat Kost</h2>
+                    <h4>Nama Pencari Kost : {{ $nama }}</h4>
                 </div>
                 <h4>Analisa Matrix</h4>
                 <table id="table_id" class="table table-bordered" style="width:100%">
@@ -589,8 +591,9 @@ function JarakIplus($aplus, $bob)
 
         <!-- Footer -->
         <footer>
-            <div style='text-align:center;'>Develop By Agung Hamdika Surya - Program Studi Ilmu Komputer, Fakultas Sains
-                dan Teknologi, Universitas Islam Negeri Sumatera Utara</div>
+            <div style="text-align:center;margin-bottom:100px;">
+                <strong>Develop by Jepnidah Hasibuan</strong><br /> Program Studi Ilmu Komputer, Fakultas Sains dan Teknologi, Universitas Islam Negeri Sumatera Utara
+            </div>
         </footer>
     </div>
 

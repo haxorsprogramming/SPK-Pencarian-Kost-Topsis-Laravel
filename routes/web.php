@@ -8,6 +8,7 @@ use App\Http\Controllers\C_Auth;
 
 Route::get('/', [C_Home::class, 'homePage']);
 Route::get('/pencarianKost', [C_Home::class, 'pencarianKost']);
+Route::post('/pencarianKost/proses', [C_Home::class, 'pencarianKostProses']);
 Route::get('/dataKost', [C_Home::class, 'dataKost']);
 // Route::post('/prosesPencarian', [C_Home::class, 'prosesPencarian']);
 Route::get('/hasilPencarian/{idPengujian}', [C_Home::class, 'hasilPengujian']);
@@ -22,3 +23,4 @@ Route::get('/app/data-kriteria', [C_Admin::class, 'dataKriteria']);
 Route::get('/app/data-kost', [C_Admin::class, 'dataKost']);
 Route::get('/app/tambah-kost', [C_Admin::class, 'tambahKost']);
 Route::post('/app/tambah-kost/proses', [C_Admin::class, 'prosesTambahKost']);
+Route::post('/app/kost/hapus/proses', [C_Admin::class, 'prosesHapusKost']);

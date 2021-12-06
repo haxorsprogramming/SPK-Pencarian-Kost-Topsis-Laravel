@@ -129,19 +129,19 @@ class C_Admin extends Controller
         // koversi jarak 
         $jarak = $request -> jarak;
         switch ($jarak) {
-            case "1":
+            case "5":
                 $jarakCap = "14 - 17 Menit";
                 break;
-            case "2":
+            case "4":
                 $jarakCap = "12 - 14 Menit";
                 break;
             case "3":
                 $jarakCap = "9 - 11 Menit";
                 break;
-            case "4":
+            case "3":
                 $jarakCap = "6 - 8 Menit";
                 break;
-            case "5":
+            case "1":
                 $jarakCap = "3 - 5 Menit";
                 break;
         }
@@ -176,10 +176,10 @@ class C_Admin extends Controller
             case "3":
                 $tempatCap = "Warung makan, toko kelontong, foto copy";
                 break;
-            case "4":
+            case "5":
                 $tempatCap = "Warung makan, toko kelontong, foto copy, laundry";
                 break;
-            case "5":
+            case "4":
                 $tempatCap = "Warung makan, toko kelontong, foto copy, laundry, atm";
                 break;
         }
@@ -204,6 +204,11 @@ class C_Admin extends Controller
         $kost->tempat_angka = $request->tempat;
         $kost->save();
         $dr = ['status' => 'status'];
+        return \Response::json($dr);
+    }
+    public function prosesHapusKost(Request $request)
+    {
+        $dr = ['status' => 'sukses'];
         return \Response::json($dr);
     }
 }

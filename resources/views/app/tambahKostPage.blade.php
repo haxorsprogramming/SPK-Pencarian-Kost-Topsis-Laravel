@@ -30,11 +30,11 @@
                             <div class="form-group">
                                 <label for="company">Harga</label>
                                 <select class="form-control" id="txtHarga" name="txtHarga">
-                                    <option value="5">Rp. 500.000 - Rp. 600.000</option>
-                                    <option value="4">Rp. 450.000 - Rp. 500.000</option>
+                                    <option value="1">Rp. 500.000 - Rp. 600.000</option>
+                                    <option value="2">Rp. 450.000 - Rp. 500.000</option>
                                     <option value="3">Rp. 400.000 - Rp. 450.000</option>
-                                    <option value="2">Rp. 350.000 - Rp. 400.000</option>
-                                    <option value="1">Rp. 400.000 - Rp. 300.000</option>
+                                    <option value="4">Rp. 350.000 - Rp. 400.000</option>
+                                    <option value="5">Rp. 400.000 - Rp. 300.000</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -50,11 +50,11 @@
                             <div class="form-group">
                                 <label for="company">Kenyamanan</label>
                                 <select class="form-control" id="txtKenyamanan" name="txtKenyamanan">
-                                    <option value="5">Mayoritas non-muslim, tidak ada mesjid, tidak ada gereja</option>
-                                    <option value="4">Mayoritas non-muslim, tidak ada mesjid, tidak ada gereja, interaksi sosial</option>
+                                    <option value="1">Mayoritas non-muslim, tidak ada mesjid, tidak ada gereja</option>
+                                    <option value="2">Mayoritas non-muslim, tidak ada mesjid, tidak ada gereja, interaksi sosial</option>
                                     <option value="3">Mayoritas muslim, lingkungan sehat</option>
-                                    <option value="2">Mayoritas muslim, ada mesjid, ada gereja</option>
-                                    <option value="1">Mayoritas muslim, ada mesjid</option>
+                                    <option value="4">Mayoritas muslim, ada mesjid, ada gereja</option>
+                                    <option value="5">Mayoritas muslim, ada mesjid</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -90,8 +90,8 @@
                             <div class="form-group">
                                 <label for="company">Tempat Strategis</label>
                                 <select class="form-control" id="txtTempatStrategis" name="txtTempatStrategis">
-                                    <option value="5">Dekat kampus, warung makan</option>
-                                    <option value="4">Dekat kampus, warung makan, toko kelontong</option>
+                                    <option value="4">Dekat kampus, warung makan</option>
+                                    <option value="5">Dekat kampus, warung makan, toko kelontong</option>
                                     <option value="3">Warung makan, toko kelontong, foto copy</option>
                                     <option value="2">Warung makan, toko kelontong, foto copy, laundry</option>
                                     <option value="1">Warung makan, toko kelontong, foto copy, laundry, atm</option>

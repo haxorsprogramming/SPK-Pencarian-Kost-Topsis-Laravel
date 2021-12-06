@@ -76,12 +76,12 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="company">Harga</label>
-                                        <select class="form-control" name="txtHarga">
-                                            <option value="5">Rp. 500.000 - Rp. 600.000</option>
-                                            <option value="4">Rp. 450.000 - Rp. 500.000</option>
+                                        <select class="form-control" name="txtHarga" id="txtHarga">
+                                            <option value="1">Rp. 500.000 - Rp. 600.000</option>
+                                            <option value="2">Rp. 450.000 - Rp. 500.000</option>
                                             <option value="3">Rp. 400.000 - Rp. 450.000</option>
-                                            <option value="2">Rp. 350.000 - Rp. 400.000</option>
-                                            <option value="1">Rp. 400.000 - Rp. 300.000</option>
+                                            <option value="4">Rp. 350.000 - Rp. 400.000</option>
+                                            <option value="5">Rp. 400.000 - Rp. 300.000</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -96,17 +96,17 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="company">Kenyamanan</label>
-                                        <select class="form-control" name="txtKenyamanan">
-                                            <option value="5">Mayoritas non-muslim, tidak ada mesjid, tidak ada gereja</option>
-                                            <option value="4">Mayoritas non-muslim, tidak ada mesjid, tidak ada gereja, interaksi sosial</option>
+                                        <select class="form-control" name="txtKenyamanan" id="txtKenyamanan">
+                                            <option value="1">Mayoritas non-muslim, tidak ada mesjid, tidak ada gereja</option>
+                                            <option value="2">Mayoritas non-muslim, tidak ada mesjid, tidak ada gereja, interaksi sosial</option>
                                             <option value="3">Mayoritas muslim, lingkungan sehat</option>
-                                            <option value="2">Mayoritas muslim, ada mesjid, ada gereja</option>
-                                            <option value="1">Mayoritas muslim, ada mesjid</option>
+                                            <option value="4">Mayoritas muslim, ada mesjid, ada gereja</option>
+                                            <option value="5">Mayoritas muslim, ada mesjid</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="company">Ukuran kost</label>
-                                        <select class="form-control" name="txtUkuran">
+                                        <select class="form-control" name="txtUkuran" id="txtUkuran">
                                             <option value="5">3 X 4 Meter</option>
                                             <option value="4">3 X 3 Meter</option>
                                             <option value="3">2,5 X 3,4 Meter</option>
@@ -116,7 +116,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="company">Jarak</label>
-                                        <select class="form-control" name="txtJarak">
+                                        <select class="form-control" name="txtJarak" id="txtJarak">
                                             <option value="5">3 - 5 Menit</option>
                                             <option value="4">6 - 8 Menit</option>
                                             <option value="3">9 - 11 Menit</option>
@@ -126,7 +126,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="company">Kebersihan</label>
-                                        <select class="form-control" name="txtKebersihan">
+                                        <select class="form-control" name="txtKebersihan" id="txtKebersihan">
                                             <option value="5">Ada petugas kebersihan</option>
                                             <option value="4">Ada jadwal piket</option>
                                             <option value="3">Pemilik kost membantu kebersihan kost</option>
@@ -136,9 +136,9 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="company">Tempat Strategis</label>
-                                        <select class="form-control" name="txtTempatStrategis">
-                                            <option value="5">Dekat kampus, warung makan</option>
-                                            <option value="4">Dekat kampus, warung makan, toko kelontong</option>
+                                        <select class="form-control" name="txtTempatStrategis" id="txtTempatStrategis">
+                                            <option value="5">Dekat kampus, warung makan, toko kelontong</option>
+                                            <option value="4">Dekat kampus, warung makan</option>
                                             <option value="3">Warung makan, toko kelontong, foto copy</option>
                                             <option value="2">Warung makan, toko kelontong, foto copy, laundry</option>
                                             <option value="1">Warung makan, toko kelontong, foto copy, laundry, atm</option>
@@ -176,6 +176,7 @@
     <script src="{{ asset('ladun/') }}/home/js/custom.js"></script>
     <script>
         document.querySelector("#txtNama").focus();
+        var rProses = "{{ url('/pencarianKost/proses') }}";
         function prosesPerhitungan()
         {
             let nama = document.querySelector("#txtNama").value;
@@ -189,7 +190,15 @@
                 let c5 = document.querySelector("#txtUkuran").value;
                 let c6 = document.querySelector("#txtJarak").value;
                 let c7 = document.querySelector("#txtKebersihan").value;
-                let c8 = document.querySelector("#txtTempat").value;
+                let c8 = document.querySelector("#txtTempatStrategis").value;
+
+                let ds = {'nama':nama, 'c1':c1, 'c2':c2, 'c3':c3, 'c4':c4, 'c5':c5, 'c6':c6, 'c7':c7, 'c8':c8 }
+
+                axios.post(rProses, ds).then(function(res){
+                    let obj = res.data;
+                    let token = obj.token;
+                    window.location.assign("{{ url('/hasilPencarian/') }}/"+token);
+                });
 
             }
         }

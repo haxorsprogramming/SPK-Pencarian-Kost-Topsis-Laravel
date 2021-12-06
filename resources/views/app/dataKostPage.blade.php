@@ -44,6 +44,9 @@
                                         <th>
                                             <center>Tempat Strategis</center>
                                         </th>
+                                        <th>
+                                            
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -59,6 +62,9 @@
                                         <td>{{ $kost -> jarak_cap }}</td>
                                         <td>{{ $kost -> kebersihan_cap }}</td>
                                         <td>{{ $kost -> tempat_cap }}</td>
+                                        <td>
+                                            <a href="#!" class="btn btn-warning" onclick="hapusProses('{{ $kost -> id }}')">Hapus</a>
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -131,5 +137,22 @@
     </div>
     </div>
 </main>
+<script>
+    function hapusProses(kdKost)
+    {
+        let rProses = "{{ url('/app/kost/hapus/proses') }}";
+        axios.post(rProses, {'kdKost':kdKost}).then(function(res){
+            let obj = res.data;
+            console.log(obj);
+        });
+    }
+    function pesanUmumApp(icon, title, text) {
+        Swal.fire({
+            icon: icon,
+            title: title,
+            text: text
+        });
+    }
+</script>
 <!-- End content  -->
 @include('layout.footerApp')
