@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 class C_Admin extends Controller
 {
-    public function loginPage()
+    public function dashboardPage()
     {
-        return view('admin.loginPage');
+        return view('app.dashboardPage');
     }
 }
