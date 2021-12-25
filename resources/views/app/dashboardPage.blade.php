@@ -71,7 +71,7 @@
                 <div class="card">
                   <div class="card-header">Halaman Dashboard</div>
                   <div class="card-body">
-                    <h3>Aplikasi Sistem Pendukung Keputusan Pemilihan Smartphone Terbaik</h3>
+                    <h3>Aplikasi Sistem Pendukung Keputusan Pemilihan Kost Terbaik</h3>
                     <img src="{{ asset('') }}ladun/home/images/courses_background.jpg" style="width: 100%;">
                   </div>
                 </div>

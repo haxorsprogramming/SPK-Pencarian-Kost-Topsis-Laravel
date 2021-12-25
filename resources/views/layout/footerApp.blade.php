@@ -1,7 +1,7 @@
 </div>
 
 <footer style="text-align:center;margin-top:20px;margin-bottom:20px;">
-    <h5>SPK Topsis - Pemilihan Smartphone by Jepnidah Hasibuan</h5>
+    <h5>SPK Topsis - Pemilihan Kost by Jepnidah Hasibuan</h5>
 </footer>
 <!-- CoreUI and necessary plugins-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js" integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
