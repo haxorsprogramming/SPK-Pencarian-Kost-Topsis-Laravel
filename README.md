@@ -7,10 +7,12 @@ Sistem penunjang keputusan untuk melakukan pencarian kost terbaik menggunakan me
 <b>Developer : Jepnidah Hasibuan</b>
 
 <b>Homepage</b>
-<img src="https://nadhamedia.s3.ap-southeast-1.amazonaws.com/nadha_asset/ss_science_project/spk_topsis_kost_laravel/home.png">
+<img src="https://s3.jagoanstorage.com/nadhamedia/project_asset/ss_aplikasi/SPK_TOPSIS_JEPNI/home.png">
 
 <b>Pencarian Kost<b>
-<img src="https://nadhamedia.s3.ap-southeast-1.amazonaws.com/nadha_asset/ss_science_project/spk_topsis_kost_laravel/pencarian_kost.png">
+<img src="https://s3.jagoanstorage.com/nadhamedia/project_asset/ss_aplikasi/SPK_TOPSIS_JEPNI/pencarian_kost.png">
 
 <b>Data Kost</b>
-<img src="https://nadhamedia.s3.ap-southeast-1.amazonaws.com/nadha_asset/ss_science_project/spk_topsis_kost_laravel/data_kost.png">
+<img src="https://s3.jagoanstorage.com/nadhamedia/project_asset/ss_aplikasi/SPK_TOPSIS_JEPNI/data_kost.png">
+
+Untuk menggunakan aplikasi ini dapat menghubungi : alditha.forum@gmail.com
