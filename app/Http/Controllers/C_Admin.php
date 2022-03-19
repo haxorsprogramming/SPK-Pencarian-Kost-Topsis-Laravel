@@ -9,6 +9,7 @@ use App\Models\M_Kost;
 use App\Models\M_Data_Pengujian;
 use Illuminate\Support\Facades\Redis;
 
+
 class C_Admin extends Controller
 {
     public function dashboardPage()
@@ -282,6 +283,19 @@ class C_Admin extends Controller
         $data['tempat'] = $dp -> c8;
         $data['kost'] = M_Kost::all();
         return view('home.hasilPengujianAdmin', $data);
+    }
+
+    public function tambahKriteriaProses(Request $request)
+    {
+        // {'nama':nama, 'bobot':bobot, 'nilai':nilai}
+        $kriteria = new M_Kriteria();
+        $kriteria -> kriteria = $request -> nama;
+        $kriteria -> bobot = $request -> bobot;
+        $kriteria -> nilai = $request -> nilai;
+        $kriteria -> active = "1";
+        $kriteria -> save();
+        $dr = ['status' => 'sukses'];
+        return \Response::json($dr);
     }
 
     function resetOrdinal()

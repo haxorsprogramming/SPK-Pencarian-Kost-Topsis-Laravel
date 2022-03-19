@@ -9,16 +9,6 @@ $W6 = $jarak;
 $W7 = $kebersihan;
 $W8 = $tempat;
 
-// $data['fasilitas'] = 2;
-//         $data['harga'] = 4;
-//         $data['keamanan'] = 2;
-//         $data['kenyamanan'] = 4;
-//         $data['ukuran'] = 5;
-//         $data['jarak'] = 3;
-//         $data['kebersihan'] = 2;
-//         $data['tempat'] = 2;
-// Pembagi Normalisasi
-
 function pembagiNM($matrik)
 {
     for ($i = 0; $i < 8; $i++) {

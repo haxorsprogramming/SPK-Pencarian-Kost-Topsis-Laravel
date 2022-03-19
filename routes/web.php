@@ -23,6 +23,7 @@ Route::get('/app/data-kriteria', [C_Admin::class, 'dataKriteria']);
 Route::post('/app/kriteria/hapus/proses', [C_Admin::class, 'hapusProses']);
 Route::post('/app/kriteria/get/data', [C_Admin::class,  'getData']);
 Route::post('/app/kriteria/update/proses', [C_Admin::class, 'updateProses']);
+Route::post('/app/kriteria/tambah/proses', [C_Admin::class, 'tambahKriteriaProses']);
 
 Route::get('/app/data-kost', [C_Admin::class, 'dataKost']);
 Route::get('/app/tambah-kost', [C_Admin::class, 'tambahKost']);

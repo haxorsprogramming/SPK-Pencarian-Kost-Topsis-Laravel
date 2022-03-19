@@ -616,11 +616,7 @@ function JarakIplus($aplus, $bob)
     <script src="{{ asset('ladun/') }}/home/plugins/easing/easing.js"></script>
     <script src="{{ asset('ladun/') }}/home/plugins/parallax-js-master/parallax.min.js"></script>
     <script src="{{ asset('ladun/') }}/home/js/custom.js"></script>
-    <script>
-        $(document).ready(function() {
-
-        });
-    </script>
+    <script></script>
 </body>
 
 </html>
