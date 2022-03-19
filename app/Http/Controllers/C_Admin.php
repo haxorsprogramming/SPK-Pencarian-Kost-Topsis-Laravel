@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\M_Kriteria;
 use App\Models\M_Kost;
 use App\Models\M_Data_Pengujian;
+use Illuminate\Support\Facades\Redis;
 
 class C_Admin extends Controller
 {
@@ -225,6 +226,62 @@ class C_Admin extends Controller
         $this -> resetOrdinal();
         $dr = ['status' => 'sukses'];
         return \Response::json($dr);
+    }
+
+    public function hapusProses(Request $request)
+    {
+        M_Kriteria::where('id', $request -> idKriteria) -> delete();
+        $dr = ['status' => 'sukses'];
+        return \Response::json($dr);
+    }
+
+    public function getData(Request $request)
+    {
+        $dataKriteria = M_Kriteria::where('id', $request -> idKriteria) -> first(); 
+        $dr = ['status' => 'sukses', 'kriteria' => $dataKriteria];
+        return \Response::json($dr);
+    }
+
+    public function updateProses(Request $request)
+    {
+        // {'kdKriteria':kdKriteria, 'nama':nama, 'bobot':bobot, 'nilai':nilai}
+        M_Kriteria::where('id', $request -> kdKriteria) -> update([
+            'kriteria' => $request -> nama,
+            'bobot' => $request -> bobot,
+            'nilai' => $request -> nilai
+        ]);
+        $dr = ['status' => 'sukses'];
+        return \Response::json($dr);
+    }
+
+    public function dataPengujian()
+    {
+        $dataPengujian = M_Data_Pengujian::all();
+        $dr = ['dataPengujian' => $dataPengujian];
+        return view('app.dataPengujian', $dr);
+    }
+
+    public function prosesHapusPengujian(Request $request)
+    {
+        M_Data_Pengujian::where('token', $request -> token) -> delete();
+        $dr = ['status' => 'sukses'];
+        return \Response::json($dr);
+    }
+
+    public function hasilPencarianAdmin(Request $request, $idPengujian)
+    {
+        $dp = M_Data_Pengujian::where('token', $idPengujian) -> first();
+        $data['nama'] = $dp -> nama_penguji;
+        $data['fasilitas'] = $dp -> c1;
+        $data['harga'] = $dp -> c2;
+        $data['keamanan'] = $dp -> c3;
+        $data['kenyamanan'] = $dp -> c4;
+        $data['ukuran'] = $dp -> c5;
+        $data['jarak'] = $dp -> c6;
+        $data['kebersihan'] = $dp -> c7;
+        $data['tempat'] = $dp -> c8;
+        $data['kost'] = M_Kost::all();
+        return view('home.hasilPengujianAdmin', $data);
     }
 
     function resetOrdinal()

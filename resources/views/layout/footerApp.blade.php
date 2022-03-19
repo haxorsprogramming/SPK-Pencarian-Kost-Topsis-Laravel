@@ -10,6 +10,7 @@
 <script src="{{ asset('ladun/admin') }}/asset/vendors/pace-progress/js/pace.min.js"></script>
 <script src="{{ asset('ladun/admin') }}/asset/vendors/perfect-scrollbar/js/perfect-scrollbar.min.js"></script>
 <script src="{{ asset('ladun/admin') }}/asset/vendors/@coreui/coreui/js/coreui.min.js"></script>
+
 <!-- Plugins and scripts required by this view-->
 <!-- <script src="../asset/vendors/chart.js/js/Chart.min.js"></script> -->
 <script

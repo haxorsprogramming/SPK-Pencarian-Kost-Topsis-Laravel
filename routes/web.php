@@ -20,7 +20,16 @@ Route::get('/auth/logout', [C_Auth::class, 'logout']);
 // halaman admin 
 Route::get('/app', [C_Admin::class, 'dashboardPage']);
 Route::get('/app/data-kriteria', [C_Admin::class, 'dataKriteria']);
+Route::post('/app/kriteria/hapus/proses', [C_Admin::class, 'hapusProses']);
+Route::post('/app/kriteria/get/data', [C_Admin::class,  'getData']);
+Route::post('/app/kriteria/update/proses', [C_Admin::class, 'updateProses']);
+
 Route::get('/app/data-kost', [C_Admin::class, 'dataKost']);
 Route::get('/app/tambah-kost', [C_Admin::class, 'tambahKost']);
 Route::post('/app/tambah-kost/proses', [C_Admin::class, 'prosesTambahKost']);
 Route::post('/app/kost/hapus/proses', [C_Admin::class, 'prosesHapusKost']);
+
+// data pengujian 
+Route::get('/app/data-pengujian', [C_Admin::class, 'dataPengujian']);
+Route::post('/app/pengujian/hapus/proses', [C_Admin::class, 'prosesHapusPengujian']);
+Route::get('/hasilPencarianAdmin/{idPengujian}', [C_Admin::class, 'hasilPencarianAdmin']);

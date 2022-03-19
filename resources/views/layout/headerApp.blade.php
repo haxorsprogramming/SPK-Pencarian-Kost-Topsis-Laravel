@@ -14,11 +14,13 @@
     <link href="{{ asset('ladun/admin') }}/asset/vendors/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
     <link href="{{ asset('ladun/admin') }}/asset/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="{{ asset('ladun/admin') }}/asset/vendors/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+    <link href="https://s3.jagoanstorage.com/aditia-storage/lib/datatable/datatables.min.css" rel="stylesheet">
     <!-- Main styles for this application-->
     <link href="{{ asset('ladun/admin') }}/asset/css/style.css" rel="stylesheet">
     <link href="{{ asset('ladun/admin') }}/asset/vendors/pace-progress/css/pace.min.css" rel="stylesheet">
     <script src="{{ asset('ladun/admin') }}/asset/vendors/jquery/js/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://s3.jagoanstorage.com/aditia-storage/lib/datatable/jquery.dataTables.min.js"></script>
 </head>
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
@@ -68,6 +70,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/') }}/app/data-kost">
                             <i class="nav-icon icon-list"></i> Data Kost
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/') }}/app/data-pengujian">
+                            <i class="nav-icon icon-list"></i> Data Pengujian
                         </a>
                     </li>
                 </ul>

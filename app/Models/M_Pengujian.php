@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class M_Pengujian extends Model
 {
-    use HasFactory;
+    protected $table = "tbl_k_data_pengujian";
 }

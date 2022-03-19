@@ -3,7 +3,7 @@
 <main class="main" style="margin-top: 30px;">
     <div class="container-fluid">
         <div class="animated fadeIn">
-            <div class="row">
+            <div class="row" id="divDataKriteria">
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">Data Kriteria</div>
@@ -15,17 +15,22 @@
                                         <th>Nama</th>
                                         <th>Bobot</th>
                                         <th>Nilai</th>
+                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($dataKriteria as $kriteria)
-                                <tr>
-                                    <td>{{ $loop -> iteration }}</td>
-                                    <td>{{ $kriteria -> kriteria }}</td>
-                                    <td>{{ $kriteria -> bobot }}</td>
-                                    <td>{!! $kriteria -> nilai !!}</td>
-                                </tr>
-                                @endforeach
+                                    @foreach($dataKriteria as $kriteria)
+                                    <tr>
+                                        <td>{{ $loop -> iteration }}</td>
+                                        <td>{{ $kriteria -> kriteria }}</td>
+                                        <td>{{ $kriteria -> bobot }}</td>
+                                        <td>{!! $kriteria -> nilai !!}</td>
+                                        <td>
+                                            <a href="javascript:void(0)" onclick="editAtc('{{ $kriteria -> id }}')" class="btn btn-success">Edit</a>
+                                            <a href="javascript:void(0)" onclick="hapusAtc('{{ $kriteria -> id }}')" class="btn btn-warning">Hapus</a>
+                                        </td>
+                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -34,8 +39,92 @@
                 <!-- /.col-->
             </div>
             <!-- /.row-->
+            <div class="row" style="display: none;" id="divKriteria">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">Edit Kriteria</div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="company">Nama Kriteria</label>
+                                <input type="text" class="form-control" id="txtNamaKriteria">
+                            </div>
+                            <div class="form-group">
+                                <label for="company">Bobot</label>
+                                <input type="text" class="form-control" id="txtBobot">
+                            </div>
+                            <div class="form-group">
+                                <label for="company">Keterangan / Nilai</label>
+                                <textarea class="form-control" id="txtNilai"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <a href="javascript:void(0)" class="btn btn-primary" onclick="simpanAtc()">Simpan</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </main>
+
+<script>
+
+    var idKriteriaEdit = "";
+
+    function editAtc(idKriteria) {
+        $("#divDataKriteria").hide();
+        $("#divKriteria").show();
+        let rProses = "{{ url('/app/kriteria/get/data') }}";
+        axios.post(rProses, {'idKriteria':idKriteria}).then(function(res){
+            // console.log(res.data);
+            let kriteria = res.data.kriteria;
+            idKriteriaEdit = kriteria.id;
+            document.querySelector("#txtNamaKriteria").value = kriteria.kriteria;
+            document.querySelector("#txtBobot").value = kriteria.bobot;
+            document.querySelector("#txtNilai").value = kriteria.nilai;
+        });
+        document.querySelector("#txtNamaKriteria").focus();
+
+        console.log(idKriteria);
+    }
+
+    function hapusAtc(idKriteria) {
+        let rProses = "{{ url('/app/kriteria/hapus/proses') }}";
+        axios.post(rProses, {
+            'idKriteria': idKriteria
+        }).then(function(res) {
+            let obj = res.data;
+            pesanUmumApp('success', 'Sukses', 'Berhasil menghapus data kriteria ...');
+            setTimeout(function() {
+                window.location.assign("{{ url('/app/data-kriteria') }}");
+            }, 500);
+        });
+    }
+
+    function simpanAtc()
+    {
+        let kdKriteria = idKriteriaEdit;
+        let nama = document.querySelector("#txtNamaKriteria").value;
+        let bobot = document.querySelector("#txtBobot").value;
+        let nilai = document.querySelector("#txtNilai").value;
+        let ds = {'kdKriteria':kdKriteria, 'nama':nama, 'bobot':bobot, 'nilai':nilai}
+        let rProses = "{{ url('/app/kriteria/update/proses') }}";
+        axios.post(rProses, ds).then(function(res){
+            pesanUmumApp('success', 'Sukses', 'Berhasil mengupdate data kriteria ...');
+            setTimeout(function() {
+                window.location.assign("{{ url('/app/data-kriteria') }}");
+            }, 500);
+        });
+    }
+
+    function pesanUmumApp(icon, title, text) {
+        Swal.fire({
+            icon: icon,
+            title: title,
+            text: text
+        });
+    }
+</script>
+
 <!-- End content  -->
 @include('layout.footerApp')
